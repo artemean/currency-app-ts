@@ -20,7 +20,6 @@ const App: React.FC = () => {
       base: currencies.base
     }));
   }
-  console.log(preparedList);
 
   return (
     <div className="currency-app">

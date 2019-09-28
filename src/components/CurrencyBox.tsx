@@ -1,11 +1,11 @@
 import React from 'react';
 import {formatDollar} from '../utils/utils';
 import {Currency} from '../types/types';
-import './currency-box.scss';
+import styles from './currency-box.module.scss';
 
-const CurrencyBox: React.FC<Currency> = ({name, value, base}) => (
-    <div className="currency-box">
-        <span>{name}</span> - {formatDollar(value, base)}
+const CurrencyBox: React.FC<Currency> = ({name, value}) => (
+    <div className={styles.wrap}>
+        <span className={styles.name}>{name}</span> - <span className={styles.value}>{formatDollar(value, name)}</span>
     </div>
 );
 
