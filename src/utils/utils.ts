@@ -1,3 +1,3 @@
-export const formatDollar = (num: number): string => {
-    return (num).toLocaleString("en-US", {style: "currency", currency: "USD", minimumFractionDigits: 2})
+export const formatDollar = (num: number, base: string): string => {
+    return (num).toLocaleString("en-US", {style: "currency", currency: base, minimumFractionDigits: 2})
 };

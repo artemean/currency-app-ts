@@ -1,6 +1,7 @@
 export interface Currency {
     name: string,
-    value: number
+    value: number,
+    base: string
 }
 
 export type CurrencyList = {

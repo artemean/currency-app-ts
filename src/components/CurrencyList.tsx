@@ -5,7 +5,7 @@ import {Currency} from '../types/types';
 
 const CurrencyListCom: React.FC<CurrencyList> = ({currencies}) => (
     <div className="currency-list">
-        {currencies.map((currency: Currency)  => <CurrencyBox key={currency.name} name={currency.name} value={currency.value} />)}
+        {currencies.map((currency: Currency)  => <CurrencyBox key={currency.name} name={currency.name} value={currency.value} base={currency.base} />)}
     </div>
 );
 

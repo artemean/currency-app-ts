@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import CurrencyListCom from "./components/CurrencyList";
-import './App.css';
+import {Currency} from "./types/types";
+import './App.scss';
 
 const App: React.FC = () => {
   const [currencies, setCurrencies] = useState();
   const getData = async () => await (await fetch('https://api.exchangeratesapi.io/latest')).json();
-  let preparedList: {name: string, value: number}[] = [];
+  let preparedList: Currency[] = [];
   useEffect(() => {
     if (!currencies) {
       getData().then(data => setCurrencies(data));
@@ -13,16 +14,19 @@ const App: React.FC = () => {
   });
 
   if (currencies) {
-    const {base, date, rates} = currencies;
-    preparedList = Object.keys(rates).map(key => ({
+    preparedList = Object.keys(currencies.rates).map(key => ({
       name: key,
-      value: rates[key]
+      value: currencies.rates[key],
+      base: currencies.base
     }));
   }
   console.log(preparedList);
 
   return (
-    <div className="App">
+    <div className="currency-app">
+      <h1>Currencies App</h1>
+      <h2>Base currency: {currencies && currencies.base}</h2>
+      <h3>For date: {currencies && currencies.date}</h3>
       <CurrencyListCom currencies={preparedList} />
     </div>
   );
