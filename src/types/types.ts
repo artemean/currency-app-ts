@@ -1,9 +1,14 @@
 export interface Currency {
-    name: string,
-    value: number,
-    base: string
+  name: string;
+  value: number;
 }
 
-export type CurrencyList = {
-    currencies: Currency[]
-};
+export interface CurrencyResponse {
+  rates: {
+    [key: string]: number;
+  };
+  date: string;
+  base: string;
+}
+
+export type CurrencyList = Currency[];
