@@ -5,6 +5,14 @@
   background: rgba(255, 255, 255, 0.4);
 }
 
+.wrap * {
+  vertical-align: middle;
+}
+
+.wrap img {
+  margin-right: 10px;
+}
+
 .name {
   font-weight: bold;
 }
