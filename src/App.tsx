@@ -25,6 +25,7 @@ const App: React.FC = () => {
     <div className="currency-app">
       <h1>Currencies App</h1>
       <h2>Base currency: {selectedBaseCurrency}</h2>
+      <span className="select-label">Select base currency:</span>
       <select onChange={onChange} name="currency-list" id="currencies-dropdown">
         {Object.keys(currencies.rates).map(currency => (
           <option key={currency}>{currency}</option>
