@@ -9,3 +9,14 @@
 .select-label {
   margin-right: 5px;
 }
+
+.navigation {
+  border: 1px solid #999;
+  display: inline-block;
+  padding: 10px;
+  background: rgba(249, 250, 183, 0.5);
+
+  a {
+    margin-right: 10px;
+  }
+}

@@ -10,14 +10,17 @@
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
     "typescript": "3.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start0": "react-scripts start",
+    "start": "concurrently --kill-others \"yarn run start0\" \"yarn run prettier-watch\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier-watch": "onchange '**/*.@(js|jsx|ts|tsx|css|scss)' -- prettier --write {{changed}}"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,5 +36,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.0",
+    "concurrently": "^4.1.2",
+    "onchange": "^6.1.0",
+    "prettier": "1.18.2"
   }
 }
