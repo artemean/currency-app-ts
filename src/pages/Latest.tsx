@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CurrencyListCom from "../components/CurrencyList";
 import { CurrencyResponse } from "../types/types";
+import { useCurrenciesData } from "../utils/dataProvider";
 
-const Latest = () => {
-  const [currencies, setCurrencies] = useState();
-  const [selectedBaseCurrency = "EUR", setSelectedBaseCurrency] = useState();
-  const getData = async (currency: string) => {
-    return await (await fetch(
-      `https://api.exchangeratesapi.io/latest?base=${currency}`
-    )).json();
-  };
-  useEffect(() => {
-    getData(selectedBaseCurrency).then(data => setCurrencies(data));
-  }, [selectedBaseCurrency]);
-
+function Latest() {
+  const {
+    currencies,
+    selectedBaseCurrency,
+    setSelectedBaseCurrency
+  } = useCurrenciesData();
   const onChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     setSelectedBaseCurrency(event.target.value);
   };
@@ -34,6 +29,6 @@ const Latest = () => {
   );
 
   return currencies ? renderApp(currencies) : loading;
-};
+}
 
 export default Latest;
